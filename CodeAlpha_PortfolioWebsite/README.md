@@ -1,57 +1,88 @@
-# 🚀 Siddharth Portfolio Website
+# 🚀 Siddhartha Kotnaka | Premium Portfolio Website
 
-A modern and responsive personal portfolio website built using HTML, CSS, and JavaScript.
+A modern, futuristic, and fully responsive personal portfolio website built using HTML, CSS, and JavaScript. This project showcases frontend development skills, UI/UX design, animations, interactive effects, and modern web technologies.
 
-## 🌟 Features
+---
 
-- Responsive Design
-- Modern Dark UI
-- Smooth Scrolling
-- Scroll Reveal Animations
-- Typing Animation
-- Project Showcase
-- Contact Form
-- Downloadable Resume
-- Social Media Links
+# 🌟 Live Features
 
-## 🛠️ Technologies Used
+## ✅ Premium Glassmorphism UI
+- Apple-style floating glass navbar
+- Modern futuristic interface
+- Blur effects and glowing shadows
+
+## ✅ Responsive Design
+- Mobile-friendly layout
+- Tablet optimized
+- Desktop responsive structure
+
+## ✅ Animated Hero Section
+- Typing text animation
+- Floating profile image
+- Gradient glowing backgrounds
+
+## ✅ Animated Particle Background
+- Interactive futuristic particle effects
+- Smooth visual atmosphere
+
+## ✅ Dark / Light Mode
+- Dynamic theme switching
+- Smooth transitions
+
+## ✅ Custom Loader Animation
+- Professional animated loading screen
+- Smooth entrance experience
+
+## ✅ Interactive Navigation
+- Active section highlighting
+- Smooth scrolling navigation
+- Mobile hamburger menu
+
+## ✅ Skills Section
+- Animated skill progress bars
+- Modern tech cards
+
+## ✅ Timeline Section
+- Professional vertical journey timeline
+- Animated milestone cards
+
+## ✅ Projects Showcase
+- Interactive project cards
+- Hover animations
+- Tech stack badges
+
+## ✅ AI Chatbot UI
+- Modern floating chatbot design
+- Interactive open/close animations
+
+## ✅ Contact Form Integration
+- Functional EmailJS integration
+- Professional HTML email template
+- Real-time message delivery
+
+---
+
+# 🛠️ Technologies Used
 
 - HTML5
 - CSS3
-- JavaScript
-- ScrollReveal.js
-- Typed.js
+- JavaScript (Vanilla JS)
+- EmailJS
 - Font Awesome
+- Particles.js
+- Typed.js
 
-## 📂 Sections Included
+---
 
-- Home
-- About
-- Skills
-- Projects
-- Contact
-- Footer
+# 📂 Project Structure
 
-## 📸 Projects Showcased
-
-- VAHANAVEDHIKA
-- Digital Banking Management Solution
-- SAMVAAD AI
-
-## 📱 Responsive Design
-
-This website is fully responsive and works across:
-- Mobile Devices
-- Tablets
-- Laptops
-- Desktops
-
-## 🔗 Live Demo
-
-Add your GitHub Pages link here.
-
-## 👨‍💻 Author
-
-Siddharth Kotnaka
-
-Frontend Developer & AIML Student
+```bash
+Portfolio/
+│
+├── index.html
+├── style.css
+├── script.js
+├── assets/
+│   ├── images/
+│   └── icons/
+└── README.md
