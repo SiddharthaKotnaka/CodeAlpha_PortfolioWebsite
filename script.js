@@ -514,79 +514,58 @@ function sendMessage() {
     chatInput.value = '';
 }
 
-// ================= REAL AI CHATBOT =================
-
 async function getBotReply(message) {
 
-    try {
+    message = message.toLowerCase();
 
-        const response = await fetch(
-            "https://openrouter.ai/api/v1/chat/completions",
-            {
+    if (
+        message.includes("hello") ||
+        message.includes("hi")
+    ) {
 
-                method: "POST",
-
-                headers: {
-
-                    "Authorization":
-                        "Bearer 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",
-
-                    "Content-Type": "application/json"
-
-                },
-
-                body: JSON.stringify({
-
-                    model: "openai/gpt-3.5-turbo",
-
-                    messages: [
-
-                        {
-                            role: "system",
-
-                            content:
-                                `
-                                You are Siddharth's AI portfolio assistant.
-
-                                Answer professionally about:
-                                - Skills
-                                - Projects
-                                - Internship
-                                - Frontend Development
-                                - AIML
-                                - Contact Information
-
-                                Keep answers short, modern, and friendly.
-                                `
-                        },
-
-                        {
-                            role: "user",
-
-                            content: message
-                        }
-
-                    ]
-
-                })
-
-            }
-        );
-
-        const data = await response.json();
-
-        return data.choices[0].message.content;
-
+        return "Hello 👋 I'm Siddharth's AI Assistant. How can I help you?";
     }
 
-    catch(error) {
+    else if (
+        message.includes("skills")
+    ) {
 
-        console.log(error);
+        return "Siddharth specializes in HTML, CSS, JavaScript, Responsive Design, UI/UX, and AIML.";
+    }
 
-        return "AI Assistant is currently unavailable.";
+    else if (
+        message.includes("projects")
+    ) {
+
+        return "Siddharth built projects like SAMVAAD AI, VAHANAVEDHIKA, Banking Management System, and this premium portfolio website.";
+    }
+
+    else if (
+        message.includes("internship")
+    ) {
+
+        return "Siddharth is currently completing Frontend Development Internship projects with CodeAlpha.";
+    }
+
+    else if (
+        message.includes("contact")
+    ) {
+
+        return "You can contact Siddharth through the Contact section or via LinkedIn and Email.";
+    }
+
+    else if (
+        message.includes("who are you")
+    ) {
+
+        return "I'm Siddharth's virtual AI portfolio assistant 🤖";
+    }
+
+    else {
+
+        return "I'm still learning 🤖 Please ask about skills, projects, internship, or contact information.";
     }
 }
-
 // ================= GSAP HERO ANIMATION =================
 
 gsap.from('.logo', {
