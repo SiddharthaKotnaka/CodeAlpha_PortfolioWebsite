@@ -492,12 +492,19 @@ function sendMessage() {
 
     botMsg.classList.add('bot-message');
 
-    botMsg.innerHTML =
-        getBotReply(message);
+    botMsg.innerHTML = "Typing...";
 
-    setTimeout(() => {
+    setTimeout(async () => {
 
         chatbotBody.appendChild(botMsg);
+
+        chatbotBody.scrollTop =
+            chatbotBody.scrollHeight;
+
+        const reply =
+            await getBotReply(message);
+
+        botMsg.innerHTML = reply;
 
         chatbotBody.scrollTop =
             chatbotBody.scrollHeight;
@@ -507,37 +514,77 @@ function sendMessage() {
     chatInput.value = '';
 }
 
-// AI Replies
+// ================= REAL AI CHATBOT =================
 
-function getBotReply(message) {
+async function getBotReply(message) {
 
-    message = message.toLowerCase();
+    try {
 
-    if(message.includes('skills')) {
+        const response = await fetch(
+            "https://openrouter.ai/api/v1/chat/completions",
+            {
 
-        return 'Siddharth works with HTML, CSS, JavaScript, UI/UX Design, Responsive Design, GitHub, and frontend technologies.';
+                method: "POST",
+
+                headers: {
+
+                    "Authorization":
+                        "Bearer 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",
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    model: "openai/gpt-3.5-turbo",
+
+                    messages: [
+
+                        {
+                            role: "system",
+
+                            content:
+                                `
+                                You are Siddharth's AI portfolio assistant.
+
+                                Answer professionally about:
+                                - Skills
+                                - Projects
+                                - Internship
+                                - Frontend Development
+                                - AIML
+                                - Contact Information
+
+                                Keep answers short, modern, and friendly.
+                                `
+                        },
+
+                        {
+                            role: "user",
+
+                            content: message
+                        }
+
+                    ]
+
+                })
+
+            }
+        );
+
+        const data = await response.json();
+
+        return data.choices[0].message.content;
 
     }
 
-    if(message.includes('projects')) {
+    catch(error) {
 
-        return 'Main projects include VAHANAVEDHIKA, SAMVAAD AI, and Digital Banking Management Solution.';
+        console.log(error);
 
+        return "AI Assistant is currently unavailable.";
     }
-
-    if(message.includes('contact')) {
-
-        return 'You can contact Siddharth via email at bksiddhartha05@gmail.com';
-
-    }
-
-    if(message.includes('who')) {
-
-        return 'Siddharth is a Frontend Developer and AIML student passionate about futuristic web experiences.';
-
-    }
-
-    return 'Thanks for your message 👋';
 }
 
 // ================= GSAP HERO ANIMATION =================
